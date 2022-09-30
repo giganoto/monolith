@@ -30,16 +30,16 @@
   - Make sure you are able to login into it via SSH.
   - Start a screen session and run this command - `ssh -R 80:localhost:8090 localhost.run`.
   - Copy HTTPS URL given by localhost.run above and detach from the screen.
+  - `localhost.run` might show some different page, go to bottom accept the cookie and click - `take me to my site`.
 
 - Part 2
   - GIT Clone this repository.
-  - Create a virtual environment using `python3.10` inside the `back-end` directory.
   - Create your config file as explained above.
   - Don't foget to paste copied URL in "url" of config.json.
-  - Run `python test.py` to confirm everything is fine.
+  - Run `python3.10 test.py` to confirm everything is fine.
 
 - Part 3
-  - Start another screen session, enable the virtual environment in it.
-  - Run - `python api.py` in that screen session.
-  - Go to the copied URL from a browser and confirm the URL says - Hello `Your Name`.
+  - Start another screen session.
+  - Run - `python3.10 app.py` in that screen session.
+  - Go to the copied localhost.run URL from a browser and confirm it shows your name.
   - Detach from this screen too, you are done!
