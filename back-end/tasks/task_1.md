@@ -28,7 +28,7 @@
 - Part 1
   - Run any linux distribution on your EC2 or Raspberry PI.
   - Make sure you are able to login into it via SSH.
-  - Start a screen session and run this command - `ssh -R 80:localhost:8090 localhost.run`.
+  - Start a screen session and run this command - `ssh -R 80:127.0.0.1:8090 localhost.run`.
   - Copy HTTPS URL given by localhost.run above and detach from the screen.
   - `localhost.run` might show some different page, go to bottom accept the cookie and click - `take me to my site`.
 
