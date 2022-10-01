@@ -85,5 +85,5 @@
 ## Have a doubt/ Want to connect with the community?
   - Join us here
     - [Discord](https://discord.gg/bw26wfbH2K)
-    - [Learn more about this codebase] (https://www.youtube.com/watch?v=uh4Y6yNtCYk&list=PLBGdAjPuC6fTjNfUGJGJnY6SrBpcsapYl)
+    - [Learn more about this codebase](https://www.youtube.com/watch?v=uh4Y6yNtCYk&list=PLBGdAjPuC6fTjNfUGJGJnY6SrBpcsapYl)
     - [Giganoto](https://giganoto.com)
