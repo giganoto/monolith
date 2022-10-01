@@ -2,6 +2,12 @@ import json
 import signal
 from socket import socket, AF_INET, SOCK_STREAM
 
+from rangeen import (
+    info as to_info_text,
+    warning as to_warning_text,
+    danger as to_danger_text,
+)
+
 
 sock = None
 
@@ -12,18 +18,18 @@ def run_server(host, port, listen_q_size, response):
     sock = socket(AF_INET, SOCK_STREAM)
     sock.bind((host, port))
     sock.listen(listen_q_size)
-    print("Server started")
+    print(to_warning_text("Server started"))
 
     while True:
         try:
             conn, addr = sock.accept()
             req = conn.recv(1024).decode()
-            print("Req RCVD")
+            print(to_info_text("Req RCVD"))
             conn.sendall(response)
             conn.close()
-            print("TCP connection ended")
+            print(to_info_text("TCP connection ended"))
         except Exception as e:
-            print("Exception occured", e)
+            print(to_danger_text("Exception occured"), e)
 
 
 def create_response(name, twitter):
@@ -43,7 +49,7 @@ def signal_handler(signum, frame):
     if sock is not None:
         sock.close()
 
-    print("Exiting ...")
+    print(to_danger_text("Exiting ..."))
     exit(0)
 
 
