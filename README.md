@@ -1,3 +1,6 @@
+![Giganoto](https://github.com/giganoto/monolith/raw/main/extras/ggnt.png)
+
+
 ## What is Giganoto (Vision)?
 
 - A motive:
