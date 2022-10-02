@@ -15,9 +15,9 @@
   - Front-end is open-source.
   - Design is open-source.
   - Decision-making is open-source/transparent.
-  - Backend is open source.
-  - Infrastructure is open source / run by anyone.
-  - Content is open source.
+  - Backend is open-source.
+  - Infrastructure is open-source / run by anyone.
+  - Content is open-source.
   - Only User Data is private and encrypted for individual safety.
 
 - A learning platform:
