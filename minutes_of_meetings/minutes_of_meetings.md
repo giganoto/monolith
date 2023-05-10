@@ -1,4 +1,4 @@
-## This file consists of documentation of every scrum meeting we do while building Giganoto's. We are working under the guidance of Shanu Khera, founder of Giganoto.
+## This file consists of documentation of every scrum meeting we do while building Giganoto's website. We are working under the guidance of Shanu Khera, founder of Giganoto.
 
 ### Date: 10/05/2023 Time: 10:30 PM Location: On Google Meet
 
