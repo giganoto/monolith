@@ -1,12 +1,17 @@
-import './App.css'
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/navbar/Navbar";
+import Home from "./components/home/Home";
 
 function App() {
-
   return (
     <>
-    <h1>Hello, Giganoto</h1>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
