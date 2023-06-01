@@ -5,7 +5,7 @@ class Users(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(50), nullable=False, unique=True)
-    posts = db.relationship("Posts", backref="author", lazy=True)
+    posts_list = db.relationship("Posts", backref="post", lazy=True)
 
 
 class Posts(db.Model):
