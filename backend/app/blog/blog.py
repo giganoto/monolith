@@ -14,4 +14,24 @@ def create_post():
     db.session.add(blog_post)
     db.session.commit()
 
-    return "post created"
+    return {
+        "message": "success"
+    }, 201
+
+@blog.route("/blog/update-post", methods=["GET"])
+def update_post():
+    
+    from app.database.models import Posts, db, Users
+
+    post_to_update_info = request.get_json()
+
+    post_to_update = Posts.query.filter_by(id=post_to_update_info["postId"]).first()
+    post_to_update.content = post_to_update_info["content"]
+
+    db.session.commit()
+
+    print(post_to_update)
+
+    return {
+        "message": "successfully updated"
+    }
