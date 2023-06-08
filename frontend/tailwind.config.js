@@ -5,7 +5,13 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        gigaRed: '#D90B28',
+        btnOrange: '#FF4820',
+      },
+    },
   },
   plugins: [],
 }
+

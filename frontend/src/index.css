@@ -1,5 +1,17 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body{
+/* ff 3.6+ */
+background:-moz-radial-gradient(circle at 3% 25%, rgba(169, 169, 169, 1) 0%, rgba(27, 26, 30, 0.93) 0%, rgba(0, 0, 0, 0.96) 92%);
+/* safari 5.1+,chrome 10+ */
+background:-webkit-radial-gradient(circle at 3% 25%, rgba(169, 169, 169, 1) 0%, rgba(27, 26, 30, 0.93) 0%, rgba(0, 0, 0, 0.96) 92%);
+/* opera 11.10+ */
+background:-o-radial-gradient(circle at 3% 25%, rgba(169, 169, 169, 1) 0%, rgba(27, 26, 30, 0.93) 0%, rgba(0, 0, 0, 0.96) 92%);
+/* ie 10+ */
+background:-ms-radial-gradient(circle at 3% 25%, rgba(169, 169, 169, 1) 0%, rgba(27, 26, 30, 0.93) 0%, rgba(0, 0, 0, 0.96) 92%);
+/* global 92%+ browsers support */
+background:radial-gradient(circle at 3% 25%, rgba(169, 169, 169, 1) 0%, rgba(27, 26, 30, 0.93) 0%, rgba(0, 0, 0, 0.96) 92%);
+}
 
