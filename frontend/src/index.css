@@ -1,20 +1,17 @@
-import React from "react";
-import watari from '../../assets/watari.png';
 
-const Home = () => {
-    return(
-        <>
-            <div className='flex flex-col my-10 md:flex-row'>
-                <div className='flex flex-col justify-center'>
-                    <h1 className='text-3xl mb-5 text-left mx-6 font-semibold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500'>Igniting your coding journey to unlock a limitless future of possibilities</h1>
-                    <p className='text-stone-400 mx-6 text-left mb-6'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem consequatur soluta, assumenda repellendus omnis voluptas reprehenderit recusandae maxime in eum placeat corrupti earum tempore. Distinctio dicta cumque architecto nobis maiores.</p>
-                </div>
-                <div className='flex w-full     justify-center md:justify-end md:mx-6'>
-                    <img src={watari} alt="watari" className=''/>
-                </div>
-            </div>
-        </>
-    )
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+/* ff 3.6+ */
+background:-moz-radial-gradient(circle at 3% 25%, rgba(169, 169, 169, 1) 0%, rgba(27, 26, 30, 0.93) 0%, rgba(0, 0, 0, 0.96) 92%);
+/* safari 5.1+,chrome 10+ */
+background:-webkit-radial-gradient(circle at 3% 25%, rgba(169, 169, 169, 1) 0%, rgba(27, 26, 30, 0.93) 0%, rgba(0, 0, 0, 0.96) 92%);
+/* opera 11.10+ */
+background:-o-radial-gradient(circle at 3% 25%, rgba(169, 169, 169, 1) 0%, rgba(27, 26, 30, 0.93) 0%, rgba(0, 0, 0, 0.96) 92%);
+/* ie 10+ */
+background:-ms-radial-gradient(circle at 3% 25%, rgba(169, 169, 169, 1) 0%, rgba(27, 26, 30, 0.93) 0%, rgba(0, 0, 0, 0.96) 92%);
+/* global 92%+ browsers support */
+background:radial-gradient(circle at 3% 25%, rgba(169, 169, 169, 1) 0%, rgba(27, 26, 30, 0.93) 0%, rgba(0, 0, 0, 0.96) 92%);
 }
-
-export default Home
