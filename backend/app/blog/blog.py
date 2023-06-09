@@ -2,7 +2,7 @@ from flask import Blueprint, request
 
 blog = Blueprint("blog", __name__)
 
-@blog.route("/blog/create-post", methods=["POST"])
+@blog.route("/blog/create-post", methods=["PUT"])
 def create_post():
     from app.database.models import db, Posts, Users
 
@@ -18,10 +18,10 @@ def create_post():
         "message": "success"
     }, 201
 
-@blog.route("/blog/update-post", methods=["GET"])
+@blog.route("/blog/update-post", methods=["POST"])
 def update_post():
     
-    from app.database.models import Posts, db, Users
+    from app.database.models import Posts, db
 
     post_to_update_info = request.get_json()
 
@@ -35,3 +35,18 @@ def update_post():
     return {
         "message": "successfully updated"
     }
+
+
+@blog.route("/blog/delete-post", methods=["DELETE"])
+def delete_post():
+    from app.database.models import Posts, db
+
+    post_to_delete_info = request.get_json()
+
+    post_to_delete = Posts.query.filter_by(id=post_to_delete_info["postId"]).first()
+    db.session.delete(post_to_delete)
+    db.session.commit()
+
+    return {
+        "message": "successfully deleted"
+    }, 200
