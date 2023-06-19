@@ -6,19 +6,18 @@ import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import Home from "./pages/Home/Home";
 import Navbar from "./components/Navbar/Navbar";
 
-
-function App(){
-    return (
-        <BrowserRouter>
-            <Navbar/>
-            <Routes>
-                <Route path = "/" element={<Home/>} />
-                <Route path = "/blogs" element={<Blogs/>} />
-                <Route path="/dsa-sheet" element={<DSA/>} />
-                <Route path="*"  element={<PageNotFound/>} />
-            </Routes>
-        </BrowserRouter>
-    )
+function App() {
+  return (
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/dsa-sheet" element={<DSA />} />
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

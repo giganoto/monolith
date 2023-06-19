@@ -1,17 +1,102 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body{
-/* ff 3.6+ */
-background:-moz-radial-gradient(circle at 3% 25%, rgba(169, 169, 169, 1) 0%, rgba(27, 26, 30, 0.93) 0%, rgba(0, 0, 0, 0.96) 92%);
-/* safari 5.1+,chrome 10+ */
-background:-webkit-radial-gradient(circle at 3% 25%, rgba(169, 169, 169, 1) 0%, rgba(27, 26, 30, 0.93) 0%, rgba(0, 0, 0, 0.96) 92%);
-/* opera 11.10+ */
-background:-o-radial-gradient(circle at 3% 25%, rgba(169, 169, 169, 1) 0%, rgba(27, 26, 30, 0.93) 0%, rgba(0, 0, 0, 0.96) 92%);
-/* ie 10+ */
-background:-ms-radial-gradient(circle at 3% 25%, rgba(169, 169, 169, 1) 0%, rgba(27, 26, 30, 0.93) 0%, rgba(0, 0, 0, 0.96) 92%);
-/* global 92%+ browsers support */
-background:radial-gradient(circle at 3% 25%, rgba(169, 169, 169, 1) 0%, rgba(27, 26, 30, 0.93) 0%, rgba(0, 0, 0, 0.96) 92%);
+body {
+  /* ff 3.6+ */
+  background: -moz-radial-gradient(
+    circle at 3% 25%,
+    rgba(169, 169, 169, 1) 0%,
+    rgba(27, 26, 30, 0.93) 0%,
+    rgba(0, 0, 0, 0.96) 92%
+  );
+  /* safari 5.1+,chrome 10+ */
+  background: -webkit-radial-gradient(
+    circle at 3% 25%,
+    rgba(169, 169, 169, 1) 0%,
+    rgba(27, 26, 30, 0.93) 0%,
+    rgba(0, 0, 0, 0.96) 92%
+  );
+  /* opera 11.10+ */
+  background: -o-radial-gradient(
+    circle at 3% 25%,
+    rgba(169, 169, 169, 1) 0%,
+    rgba(27, 26, 30, 0.93) 0%,
+    rgba(0, 0, 0, 0.96) 92%
+  );
+  /* ie 10+ */
+  background: -ms-radial-gradient(
+    circle at 3% 25%,
+    rgba(169, 169, 169, 1) 0%,
+    rgba(27, 26, 30, 0.93) 0%,
+    rgba(0, 0, 0, 0.96) 92%
+  );
+  /* global 92%+ browsers support */
+  background: radial-gradient(
+    circle at 3% 25%,
+    rgba(169, 169, 169, 1) 0%,
+    rgba(27, 26, 30, 0.93) 0%,
+    rgba(0, 0, 0, 0.96) 92%
+  );
+}
+
+/* CSS reset */
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 1rem;
+
+  color-scheme: light dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  color-scheme: dark light;
+}
+
+body {
+  min-height: 100vh;
+  margin-inline: auto;
+}
+
+a:-webkit-any-link {
+  text-decoration: none;
+}
+
+img,
+picture,
+video,
+canvas {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  display: block;
+  font: inherit;
+}
+
+ul li {
+  list-style: none;
 }
