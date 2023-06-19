@@ -3,7 +3,7 @@ import gigalogo from "../../assets/giga-logo.png";
 const BlogsCard = () => {
   return (
     <>
-      <div className="bg-blogCardBG w-96 rounded mb-8">
+      <div className="bg-blogCardBG w-[375px] rounded mb-8">
         <div className="p-3">
           <div>
             <img src={gigalogo} alt="" className="block h-60 w-full" />
