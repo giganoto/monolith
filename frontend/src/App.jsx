@@ -5,6 +5,7 @@ import DSA from "./pages/DSA/DSA";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import Home from "./pages/Home/Home";
 import Navbar from "./components/Navbar/Navbar";
+import SignIn from "./pages/SignIn/SignIn";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/dsa-sheet" element={<DSA />} />
         <Route path="*" element={<PageNotFound />} />
+        <Route path="/signin" element={<SignIn />} />
       </Routes>
     </BrowserRouter>
   );
