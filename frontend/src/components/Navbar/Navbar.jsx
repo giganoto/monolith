@@ -29,9 +29,9 @@ const Navbar = () => {
           isOpen
             ? "opacity-100 top-[75px] duration-500"
             : "opacity-0 top-[-300%] duration-500"
-        } md:max-w-xs md:relative md:min-h-[24px] lg:max-w-sm md:opacity-100 md:bg-transparent`}
+        } justify-self-center md:max-w-xs md:relative md:min-h-[24px] lg:max-w-sm md:opacity-100 md:bg-transparent`}
       >
-        <ul className="flex mx-7 my-3 flex-col gap-6 text-yellow-50 md:flex-row md:space-x-3 md:justify-between md:mx-0 md:my-0">
+        <ul className=" flex mx-7 my-3 flex-col gap-6 text-yellow-50 md:flex-row md:space-x-3 md:justify-between md:mx-0 md:my-0">
           <li
             onClick={() => handleMenuClick("/")}
             className="cursor-pointer hover:text-btnOrange"
