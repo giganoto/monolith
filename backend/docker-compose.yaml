@@ -16,6 +16,9 @@ services:
     environment:
       - DATABASE_URI=postgresql://postgres:giganotosecret@db:5432/giganoto
       - PYTHONUNBUFFERED=1
+      - CLOUDFLARE_ACCOUNT_ID=cloudflareid
+      - AWS_ACCESS_KEY_ID=aws_access_key_id
+      - AWS_SECRET_ACCESS_KEY=aws_secret_access_key
 
     volumes:
       - .:/backend-app

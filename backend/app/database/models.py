@@ -14,3 +14,4 @@ class Posts(db.Model):
     title = db.Column(db.String(20), nullable=False, unique=True)
     content = db.Column(db.String(1000), nullable=False)
     post_time = db.Column(db.String(), nullable=False)
+    blog_url = db.Column(db.String())
