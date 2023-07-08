@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 const firebaseConfig = {
-  apiKey: "AIzaSyC0vZM3XJB-uKfgyaGP-5TgGD1TlqBj8xI",
+  apiKey: import.meta.env.VITE_Firebase_API_KEY,
   authDomain: "giganoto-website.firebaseapp.com",
   projectId: "giganoto-website",
   storageBucket: "giganoto-website.appspot.com",
