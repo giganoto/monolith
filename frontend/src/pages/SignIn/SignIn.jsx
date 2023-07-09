@@ -13,17 +13,19 @@ const app = initializeApp(firebaseConfig);
 const SignIn = () => {
   const provider = new GoogleAuthProvider();
   const auth = getAuth();
-  function handleClick() {
+  function handleClick(event) {
+    event.preventDefault();
     signInWithPopup(auth, provider)
       .then((result) => {
+        console.log(result);
         // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        console.log(credential);
-        const token = credential.accessToken;
-        console.log(token);
+        // const credential = GoogleAuthProvider.credentialFromResult(result);
+        // console.log(credential);
+        // const token = credential.accessToken;
+        // console.log(token);
         // The signed-in user info.
-        const user = result.user;
-        console.log(user);
+        // const user = result.user;
+        // console.log(user);
         // IdP data available using getAdditionalUserInfo(result)
         // ...
       })
@@ -41,14 +43,15 @@ const SignIn = () => {
   }
   return (
     <>
-      <div className="min-h-[80vh] flex flex-row justify-center items-center">
+      <form className="min-h-[80vh] flex flex-row justify-center items-center">
         <button
           onClick={handleClick}
           className="text-white bg-blue-400 p-2 rounded-lg"
+          type="submit"
         >
           Signin with Google
         </button>
-      </div>
+      </form>
     </>
   );
 };
