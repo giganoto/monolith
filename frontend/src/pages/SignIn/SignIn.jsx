@@ -6,15 +6,14 @@ const firebaseConfig = {
   projectId: "giganoto-website",
   storageBucket: "giganoto-website.appspot.com",
   messagingSenderId: "679106369504",
-  appId: "1:679106369504:web:1fa26d13ef1d1151993d85"
+  appId: "1:679106369504:web:1fa26d13ef1d1151993d85",
 };
 const app = initializeApp(firebaseConfig);
 
-const SignIn = () => {
+const SignIn = (props) => {
   const provider = new GoogleAuthProvider();
   const auth = getAuth();
-  function handleClick(event) {
-    event.preventDefault();
+  function handleClick() {
     signInWithPopup(auth, provider)
       .then((result) => {
         console.log(result);
@@ -42,17 +41,9 @@ const SignIn = () => {
       });
   }
   return (
-    <>
-      <form className="min-h-[80vh] flex flex-row justify-center items-center">
-        <button
-          onClick={handleClick}
-          className="text-white bg-blue-400 p-2 rounded-lg"
-          type="submit"
-        >
-          Signin with Google
-        </button>
-      </form>
-    </>
+    <button onClick={handleClick} className={props.mdClass}>
+      {props.buttonText}
+    </button>
   );
 };
 
