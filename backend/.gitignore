@@ -23,5 +23,6 @@ htmlcov/
 .coverage
 .coverage.*
 *,cover
-
+.env
+firebase.json
 __pycache__

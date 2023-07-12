@@ -1,0 +1,1 @@
+admins = ["otasiddhant@gmail.com", "tothesip@gmail.com"]

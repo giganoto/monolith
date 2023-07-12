@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import gigalogo from "../../assets/giga-logo.png";
+import SignIn from "../../pages/SignIn/SignIn";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ const Navbar = () => {
         <h1 className="text-3xl">GIGANOTO</h1>
       </div>
       <div
-        className={`bg-slate-600 absolute min-h-[30vh] w-full z-50 ${
+        className={`bg-slate-600 absolute min-h-[22vh] w-full z-50 ${
           isOpen
             ? "opacity-100 top-[75px] duration-500"
             : "opacity-0 top-[-300%] duration-500"
@@ -50,21 +51,16 @@ const Navbar = () => {
           >
             DSA Sheet
           </li>
-          <li
-            onClick={() => handleMenuClick("/signin")}
-            className="cursor-pointer hover:text-btnOrange md:hidden"
-          >
-            Sign In
+          <li className="cursor-pointer md:hidden">
+            <SignIn buttonText="Signin with Google"></SignIn>
           </li>
         </ul>
       </div>
       <div className="flex flex-row justify-center items-center mx-2 p-4 md:mx-7">
-        <button
-          onClick={() => handleMenuClick("signin")}
-          className="hidden md:inline-block px-5 py-2 bg-btnOrange rounded-full text-yellow-50"
-        >
-          Sign In
-        </button>
+        <SignIn
+          buttonText="Signin with Google"
+          mdClass="hidden md:inline-block px-5 py-2 bg-btnOrange rounded-full text-yellow-50"
+        ></SignIn>
         <div
           className="w-8 h-8 flex flex-col justify-center items-center cursor-pointer md:hidden"
           onClick={handleClick}
