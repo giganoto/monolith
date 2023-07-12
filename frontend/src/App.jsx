@@ -6,6 +6,7 @@ import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import Home from "./pages/Home/Home";
 import Navbar from "./components/Navbar/Navbar";
 import SignIn from "./pages/SignIn/SignIn";
+import Admin from "./pages/Admin/admin";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/dsa-sheet" element={<DSA />} />
         <Route path="*" element={<PageNotFound />} />
         <Route path="/signin" element={<SignIn />} />
+        <Route path="/admin" element={<Admin/>} />
       </Routes>
     </BrowserRouter>
   );
