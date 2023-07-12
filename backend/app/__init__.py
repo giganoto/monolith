@@ -7,9 +7,11 @@ import boto3
 from botocore.client import Config
 import firebase_admin
 from firebase_admin import credentials
-
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
+
 app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URI")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
