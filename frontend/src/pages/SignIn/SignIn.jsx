@@ -1,6 +1,15 @@
+import { GoogleLogin } from "@react-oauth/google";
+
 const SignIn = (props) => {
- return (
-  <h1>Hello</h1>
+  return (
+    <GoogleLogin
+      onSuccess={(credentialResponse) => {
+        console.log(credentialResponse);
+      }}
+      onError={() => {
+        console.log("Login Failed");
+      }}
+    />
   );
 };
 
