@@ -5,17 +5,20 @@ from firebase_admin.auth import verify_id_token
 blog = Blueprint("blog", __name__)
 
 # ADMIN ONLY
-@blog.route("/blog/create-post", methods=["PUT"])
+@blog.route("/blog/create-post", methods=["POST"])
 def create_post():
     from app.database.models import db, Posts, Users
     import json
     from app import s3_client
     import time
 
-    auth_token = request.headers.get('Authorization')
+    auth_token = request.cookies.get("access_token")
+    print('and the token is: ==>')
     print(auth_token)
+
+    return {'message': "hi"}
+
     decrypted_token_data = (verify_id_token(auth_token))
-    print(type(decrypted_token_data))
     print(decrypted_token_data)
 
     blog_info = json.loads(request.form.get("blogData"))
