@@ -13,17 +13,17 @@ def create_user():
     name = user_info["name"]
     email = user_info["email"]
     token = request.headers.get("Authorization")
-    # print(token)
+    print(request.headers)
+
 
     check_user = Users.query.filter_by(email=email).first()
 
     if check_user:
-        print('inside here')
         resp = make_response()
-        resp.set_cookie('access_token', token, httponly= True, secure= True, samesite= 'strict')
-        print(resp.headers)
-        origin = request.headers.get('Origin')
-        resp.headers['Access-Control-Allow-Origin'] = origin
+        resp.set_cookie('access_token', token, httponly= True, secure= True, samesite= 'None')
+        resp.access_control_allow_origin = request.origin
+        resp.headers.set("Access-Control-Allow-Credentials", 'true')
+
         return resp, 200
 
     user = Users(name=name, email=email)
@@ -32,9 +32,9 @@ def create_user():
         db.session.add(user)
         db.session.commit()
 
-        return {
-            "message": "user account created and logged in"
-        }, 200
+        resp = make_response()
+        resp.set_cookie('access_token', token, httponly= True, secure= True, samesite= 'None')
+        return resp
 
     except Exception as e:
         print(e)

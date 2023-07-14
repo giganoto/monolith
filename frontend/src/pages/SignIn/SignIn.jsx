@@ -32,7 +32,6 @@ const SignIn = (props) => {
             method: 'POST',
             credentials: 'include',
             headers: {
-              'Access-Control-Allow-Credential': true,
               "Content-type": "application/json",
               "Authorization": user.accessToken
             },
@@ -42,23 +41,21 @@ const SignIn = (props) => {
             })
           }
         )
-          .then(resp => console.log(resp))
-          .then(() => {
-            fetch(
-              "http://localhost:5000/blog/create-post",
-              {
-                method: "PUT",
-                credentials: 'include',
-                body: {
-                  postTitle: "hlo",
-                  postContent: "jinga"
-                },
-                headers: {
-                  "Content-type": "application/json",
-                }
-              }
-            )
-          })
+        .then(
+          () => {
+            fetch("http://localhost:5000/blog/create-post", {
+              method: "POST",
+              credentials: 'include',
+              body: {
+                postTitle: "hlo",
+                postContent: "jinga",
+              },
+              headers: {
+                "Content-type": "application/json",
+              },
+            })
+          }
+        )
           .catch(err => console.log(err))
         // IdP data available using getAdditionalUserInfo(result)
         // ...
