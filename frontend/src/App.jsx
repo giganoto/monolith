@@ -5,7 +5,9 @@ import DSA from "./pages/DSA/DSA";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import Home from "./pages/Home/Home";
 import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer";
 import Admin from "./pages/Admin/admin";
+
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
         <Route path="*" element={<PageNotFound />} />
         <Route path="/admin" element={<Admin/>} />
       </Routes>
+      <Footer/>
     </BrowserRouter>
   );
 }
