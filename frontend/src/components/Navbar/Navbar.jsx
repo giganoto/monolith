@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import gigalogo from "../../assets/giga-logo.png";
+import SignIn from "../../pages/SignIn/SignIn";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -16,22 +17,22 @@ const Navbar = () => {
   };
 
   return (
-    <div className="flex justify-between text-yellow-50 font-bold items-center">
+    <div className="navbar flex flex-row justify-between text-yellow-50 font-bold items-center relative">
       <div
-        className="cursor-pointer mx-2 p-4 text-gigaRed text-3xl flex items-center space-x-2"
+        className="logo cursor-pointer mx-2 p-4 text-gigaRed flex flex-row items-center gap-2"
         onClick={() => navigate("/")}
       >
         <img src={gigalogo} alt="giganoto" />
-        <h1>GIGANOTO</h1>
+        <h1 className="text-3xl">GIGANOTO</h1>
       </div>
       <div
-        className={`absolute bg-slate-600 min-h-[30vh] w-full  ${
+        className={`bg-slate-600 absolute min-h-[22vh] w-full z-50 ${
           isOpen
             ? "opacity-100 top-[75px] duration-500"
-            : "opacity-0 top-[-100%] duration-500"
-        } md:opacity-100 md:top-[1.5rem] md:bg-transparent`}
+            : "opacity-0 top-[-300%] duration-500"
+        } justify-self-center md:max-w-xs md:relative md:min-h-[24px] lg:max-w-sm md:opacity-100 md:bg-transparent`}
       >
-        <ul className="flex mx-7 my-3 flex-col gap-6 text-yellow-50 md:flex-row md:space-x-3 md:justify-center md:mx-0 md:my-0">
+        <ul className=" flex mx-7 my-3 flex-col gap-6 text-yellow-50 md:flex-row md:space-x-3 md:justify-between md:mx-0 md:my-0">
           <li
             onClick={() => handleMenuClick("/")}
             className="cursor-pointer hover:text-btnOrange"
@@ -50,15 +51,16 @@ const Navbar = () => {
           >
             DSA Sheet
           </li>
-          <li className="cursor-pointer hover:text-btnOrange md:hidden">
-            Sign Up
+          <li className="cursor-pointer md:hidden">
+            <SignIn buttonText="Signin with Google"></SignIn>
           </li>
         </ul>
       </div>
-      <div className="flex mx-2 p-4 md:mx-7">
-        <button className="hidden md:inline-block px-5 py-2 bg-btnOrange rounded-full text-yellow-50">
-          Sign Up
-        </button>
+      <div className="flex flex-row justify-center items-center mx-2 p-4 md:mx-7">
+        <SignIn
+          buttonText="Signin with Google"
+          mdClass="hidden md:inline-block px-5 py-2 bg-btnOrange rounded-full text-yellow-50"
+        ></SignIn>
         <div
           className="w-8 h-8 flex flex-col justify-center items-center cursor-pointer md:hidden"
           onClick={handleClick}

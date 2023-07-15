@@ -1,23 +1,57 @@
 from flask import Blueprint, request
+from app.admins import admins
+from firebase_admin.auth import verify_id_token
 
 blog = Blueprint("blog", __name__)
 
+# ADMIN ONLY
 @blog.route("/blog/create-post", methods=["PUT"])
 def create_post():
     from app.database.models import db, Posts, Users
+    import json
+    from app import s3_client
+    import time
 
-    blog_info = request.get_json()
-    
-    blog_author = Users.query.filter_by(email=blog_info["userData"]["email"]).first()
-    blog_post = Posts(author=blog_author, title=blog_info["postData"]["postTitle"], content=blog_info["postData"]["postContent"], post_time=blog_info["postData"]["postTime"])
-    blog_author.posts_list.append(blog_post)
-    db.session.add(blog_post)
-    db.session.commit()
+    auth_token = request.headers.get('Authorization')
+    print(auth_token)
+    decrypted_token_data = (verify_id_token(auth_token))
+    print(type(decrypted_token_data))
+    print(decrypted_token_data)
+
+    blog_info = json.loads(request.form.get("blogData"))
+    blog_image = request.files.getlist("blogImage")
+
+    blog_author = Users.query.filter_by(email=decrypted_token_data["email"]).first()
+    print(blog_author)
+
+    if blog_author.email in admins:
+        
+        for index, image in enumerate(blog_image):
+            import io
+            file_like = io.BytesIO(image.read())
+            s3_client.Bucket("giganoto").upload_fileobj(file_like, f'{image.filename}-{index}')
+            url = "need to configured according to the domain name"
+
+        blog_post = Posts(
+            author = blog_author.id,
+            title = blog_info["postTitle"],
+            content = blog_info["postContent"],
+            post_time = str(time.time()),
+            blog_url = url
+        )
+        
+        db.session.add(blog_post)
+        db.session.commit()
+
+        return {
+            "message": "success"
+        }, 201
 
     return {
-        "message": "success"
-    }, 201
+        "message": "not authorized to create blog"
+    }, 403
 
+# ADMIN ONLY
 @blog.route("/blog/update-post", methods=["POST"])
 def update_post():
     
@@ -37,6 +71,7 @@ def update_post():
     }
 
 
+# ADMIN ONLY
 @blog.route("/blog/delete-post", methods=["DELETE"])
 def delete_post():
     from app.database.models import Posts, db

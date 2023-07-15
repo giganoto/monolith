@@ -16,7 +16,7 @@ const Blogs = () => {
   const [dataSource, setDataSource] = useState(
     Array.from({ length: contentLength })
   );
-  const [hasMore, setHashMore] = useState(true);
+  const [hasMore, setHashMore] = useState(true);    
 
   const fetchMoreData = () => {
     setTimeout(() => {
