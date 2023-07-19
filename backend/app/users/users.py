@@ -20,7 +20,7 @@ def create_user():
 
     if check_user:
         resp = make_response()
-        resp.set_cookie('access_token', token, httponly= True, secure= True, samesite= 'None')
+        resp.set_cookie('access_token', token, httponly= True, secure= True, samesite= 'None', max_age=2592000)
         resp.access_control_allow_origin = request.origin
         resp.headers.set("Access-Control-Allow-Credentials", 'true')
 
