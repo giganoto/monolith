@@ -33,7 +33,7 @@ def create_user():
         db.session.commit()
 
         resp = make_response()
-        resp.set_cookie('access_token', token, httponly= True, secure= True, samesite= 'None')
+        resp.set_cookie('access_token', token, httponly= True, secure= True, samesite= 'None', max_age=2592000)
         return resp
 
     except Exception as e:
