@@ -5,7 +5,7 @@ import DSA from "./pages/DSA/DSA";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import Home from "./pages/Home/Home";
 import Navbar from "./components/Navbar/Navbar";
-import Admin from "./pages/Admin/admin";
+import Admin from "./pages/Admin/admin"; 
 
 function App() {
   return (
@@ -23,3 +23,8 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
