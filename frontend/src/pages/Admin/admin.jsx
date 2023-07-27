@@ -1,15 +1,11 @@
 import React, { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import { useCreateBlogMutation } from "../../state/api";
 
 const Admin = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [image, setImage] = useState("");
-
-  const [createBlog, data] = useCreateBlogMutation();
-
 
   const handlePublish = async (e) => {
     e.preventDefault();
@@ -24,20 +20,14 @@ const Admin = () => {
 
     formData.append("blogImage", image);
 
-    await createBlog(formData)
-      .unwrap()
-      .then(() => {
-        // Reset the form
-        setTitle("");
-        setContent("");
-        setImage(null);
-      })
-      .catch((error) => {
-        // Handle any error during the mutation
-        console.error(error);
-      });
+    await fetch(`${import.meta.env.VITE_APP_BASE_URL}/blog/create-post`, {
+      method: "POST",
+      body: formData,
+    });
+    setTitle("");
+    setContent("");
+    setImage(null);
   };
-
   function handleImage(e) {
     setImage(e.target.files[0]);
   }

@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import gigalogo from "../../assets/giga-logo.png";
-import SignIn from "../../pages/SignIn/SignIn";
+import SignIn from "../SignIn/SignIn";
+import SignOut from "../SignOut/SignOut";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = () => {
@@ -52,15 +55,20 @@ const Navbar = () => {
             DSA Sheet
           </li>
           <li className="cursor-pointer md:hidden">
-            <SignIn buttonText="Signin with Google"></SignIn>
+            {!isLoggedIn ? (
+              <SignIn />
+            ) : (
+              <SignOut />
+            )}
           </li>
         </ul>
       </div>
       <div className="flex flex-row justify-center items-center mx-2 p-4 md:mx-7">
-        <SignIn
-          buttonText="Signin with Google"
-          mdClass="hidden md:inline-block px-5 py-2 bg-btnOrange rounded-full text-yellow-50"
-        ></SignIn>
+        {!isLoggedIn ? (
+          <SignIn mdClass="hidden md:inline-block px-5 py-2 bg-btnOrange rounded-full text-yellow-50" />
+        ) : (
+          <SignOut mdClass="hidden md:inline-block px-5 py-2 bg-btnOrange rounded-full text-yellow-50" />
+        )}
         <div
           className="w-8 h-8 flex flex-col justify-center items-center cursor-pointer md:hidden"
           onClick={handleClick}
